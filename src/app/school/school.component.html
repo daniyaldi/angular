@@ -1,0 +1,11 @@
+<h1>SCHOOL FORM</h1>
+<form [formGroup]="SchoolForm"  >
+    Enter starting year : <input type="text" formControlName="startingYear" >
+     <br> <br>
+    Enter ending year : <input type="text" formControlName="endingYear" >
+     <br><br>
+     Enter obtained marks : <input type="text" formControlName="marksObtained">
+     <button (click)="go();saveData()" >submit</button>
+ </form>
+ 
+ 

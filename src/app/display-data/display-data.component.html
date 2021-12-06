@@ -1,0 +1,63 @@
+<table class="table">
+    <tr>
+        <td>Starting Year </td>
+        <td>ending Year </td>
+        <td>Marks </td>
+        <td>Action</td>
+    </tr>
+    <tr class="col"   *ngFor="let item of data ; let i=index "  >        
+    <td class="row">
+        {{item.startingYear}}
+    </td>
+    <td>
+        {{item.endingYear}}
+    </td>
+    <td> 
+        {{item.marksObtained}}
+    </td>
+    <td>   
+        <button  class="btn btn-lg btn-outline-primary" (click)= "delete(i)"> Delete data</button>
+        <button class="btn btn-lg btn-outline-primary" (click)="open(content);edit(item) "  > Update data</button>
+    </td>
+    </tr>
+        <button class="btn btn-lg btn-outline-primary" (click)= "go()"> ADD data</button>
+</table>
+<ng-template #content let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <form #updateForm="ngForm" (ngSubmit)="updateStudent()">
+            <div class="form-group">
+              <label for="startingYear">Starting Year :</label>
+              <input type="text"  #startingYear [(ngModel)]="studentToUpdate.startingYear"  name="startingYear"id="startingYear"
+                class="form-control" placeholder="Starting Year">
+            </div>
+            <div class="form-group">
+              <label for="endingYear">Endng Year :</label>
+              <input type="text" #endingYear [(ngModel)]="studentToUpdate.endingYear" name="endingYear" id="endingYear" class="form-control"
+                placeholder="Endng Year">
+            </div>
+            <div class="form-group">
+              <label for="marksObtained">MarksObtained :</label>
+              <input type="text" #marksObtained [(ngModel)]="studentToUpdate.marksObtained" name="marksObtained" id="marksObtained"
+                class="form-control" placeholder="MarksObtained">
+            </div>
+            <div class="form-group">
+              <input type="submit" value="Update" class="btn btn-primary w-100">
+            </div>
+          </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Save</button>
+    </div>
+  </ng-template>
+  
+  
+  <hr>
+  
+
+ 
